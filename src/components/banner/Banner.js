@@ -12,7 +12,10 @@ const Banner = (props) => {
     axios
       .get(props.url)
       .then((response) => {
-        const fetchedMovie = response.data.results[0];
+        const movieArray = response.data.results;
+        console.log(movieArray);
+        const randomIndex = Math.floor(Math.random() * movieArray.length); // Generate a random index
+        const fetchedMovie = movieArray[randomIndex];
         setMovie(fetchedMovie);
       });
   }, []);
@@ -23,7 +26,7 @@ const Banner = (props) => {
       <div className="content">
         {movie ? (
           <>
-            <h1 className="title">{movie.title}</h1>
+            <h1 className="title">{movie.original_title}</h1>
             <div className="banner-buttons">
               <button className="button">Play</button>
               <button className="button">List</button>
