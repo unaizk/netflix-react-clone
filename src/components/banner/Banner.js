@@ -4,6 +4,7 @@ import "./Banner.css";
 import { imageUrl } from "../../constants/constants";
 
 
+
 const Banner = (props) => {
   const [movie, setMovie] = useState();
 
